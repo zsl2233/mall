@@ -1,0 +1,12 @@
+server:
+  port: 10080
+
+# mysql
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 119.91.204.67:8848

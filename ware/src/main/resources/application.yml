@@ -5,6 +5,15 @@ server:
 
 # mysql
 spring:
+
+  application:
+    name: ware
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 119.91.204.67:8848
+
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
