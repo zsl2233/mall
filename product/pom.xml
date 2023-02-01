@@ -12,6 +12,13 @@
     <name>product</name>
     <description>product project for Spring Boot</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zsl.mall</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <build>
         <finalName>product</finalName>
         <plugins>

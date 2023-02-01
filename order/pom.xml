@@ -12,6 +12,14 @@
     <name>order</name>
     <description>order project for Spring Boot</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zsl.mall</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>order</finalName>
         <plugins>

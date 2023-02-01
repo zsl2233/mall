@@ -13,6 +13,14 @@
     <name>coupon</name>
     <description>coupon project for Spring Boot</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.zsl.mall</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
     <build>
         <finalName>coupon</finalName>
