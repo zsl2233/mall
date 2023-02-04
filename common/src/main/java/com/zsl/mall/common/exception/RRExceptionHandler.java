@@ -10,9 +10,18 @@ package com.zsl.mall.common.exception;
 import com.zsl.mall.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
+import javax.validation.ConstraintViolationException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 异常处理器
@@ -53,8 +62,28 @@ public class RRExceptionHandler {
 //		return R.error("没有权限，请联系管理员授权");
 //	}
 
+	/**
+	 * bean参数验证 带requestbody的方式.
+	 *
+	 * @param e RuntimeException
+	 * @return String
+	 */
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public R validExceptionHandler(MethodArgumentNotValidException e) {
+		log.error("数据校验错误：{}，数据类型：{}",e.getMessage(),e.getFieldError());
+		Map<String,String> map = new HashMap<>();
+		BindingResult bindingResult = e.getBindingResult();
+		bindingResult.getFieldErrors().forEach(fieldError->
+			map.put(fieldError.getField(),fieldError.getDefaultMessage())
+		);
+		return R.error(ResponseCodeEnum.VALID_EXCEPTION.getCode(), ResponseCodeEnum.VALID_EXCEPTION.getMsg()).data(map);
+	}
+
+
+
 	@ExceptionHandler(Exception.class)
 	public R handleException(Exception e){
+		log.info("==========================error");
 		log.error(e.getMessage(), e);
 		return R.error();
 	}

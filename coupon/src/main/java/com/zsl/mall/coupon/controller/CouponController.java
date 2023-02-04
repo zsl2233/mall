@@ -25,7 +25,7 @@ import com.zsl.mall.common.utils.R;
  * @date 2023-02-01 11:43:04
  */
 @RestController
-@RequestMapping("coupon/coupon")
+@RequestMapping("/coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;

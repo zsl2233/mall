@@ -3,18 +3,19 @@ package com.zsl.mall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.zsl.mall.common.valid.AddGroup;
+import com.zsl.mall.common.valid.UpdateGroup;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import com.zsl.mall.product.entity.BrandEntity;
 import com.zsl.mall.product.service.BrandService;
 import com.zsl.mall.common.utils.PageUtils;
 import com.zsl.mall.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -24,11 +25,33 @@ import com.zsl.mall.common.utils.R;
  * @email s1242556348@qq.com
  * @date 2023-02-01 10:04:49
  */
+@Slf4j
 @RestController
 @RequestMapping("product/brand")
 public class BrandController {
     @Autowired
     private BrandService brandService;
+
+
+    @PostMapping("test")
+    public R test(@Valid @RequestBody BrandEntity brandEntity){
+        log.info("===========test");
+        return R.ok();
+    }
+
+    @PostMapping("addGroup")
+    public R addGroup(@Validated(value = AddGroup.class) @RequestBody BrandEntity brandEntity){
+        log.info("===========addGroup");
+        return R.ok();
+    }
+
+    @PostMapping("updateGroup")
+    public R updateGroup(@Validated(value = {UpdateGroup.class}) @RequestBody BrandEntity brandEntity){
+        log.info("===========updateGroup");
+        return R.ok();
+    }
+
+
 
     /**
      * 列表
