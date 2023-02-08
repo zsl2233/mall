@@ -33,6 +33,7 @@
     <properties>
         <com.alibaba.cloud>2021.0.1.0</com.alibaba.cloud>
         <cloud.version>2021.0.1</cloud.version>
+        <elasticsearch.version>8.6.1</elasticsearch.version>
     </properties>
 
 
