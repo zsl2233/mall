@@ -20,6 +20,9 @@ spring:
     username: root
     password: root
 
+  elasticsearch:
+    uris: http://192.168.1.9200
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:

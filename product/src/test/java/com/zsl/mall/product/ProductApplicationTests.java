@@ -1,5 +1,6 @@
 package com.zsl.mall.product;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zsl.mall.product.entity.BrandEntity;
 import com.zsl.mall.product.service.BrandService;
@@ -13,6 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ProductApplicationTests {
     @Autowired
     private BrandService brandService;
+
+    @Autowired
+    private ElasticsearchClient client;
 
     @Test
     void create() {
@@ -29,6 +33,11 @@ class ProductApplicationTests {
                 new LambdaQueryWrapper<BrandEntity>().eq(BrandEntity::getName,"苹果")
         );
         log.info("{}",brandEntity);
+    }
+
+    @Test
+    void es(){
+        log.info("=================esClient:{}",client);
     }
 
 }

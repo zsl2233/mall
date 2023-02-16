@@ -31,9 +31,11 @@
     </modules>
 
     <properties>
+        <jakartajson.version>2.1.1</jakartajson.version>
         <com.alibaba.cloud>2021.0.1.0</com.alibaba.cloud>
         <cloud.version>2021.0.1</cloud.version>
-        <elasticsearch.version>8.6.1</elasticsearch.version>
+        <jakarta-json.version>2.0.1</jakarta-json.version>
+        <jackson-bom.version>2.12.3</jackson-bom.version>
     </properties>
 
 
