@@ -23,8 +23,19 @@ spring:
   elasticsearch:
     uris: http://192.168.1.9200
 
+  cache:
+    type: redis
+
+  redis:
+    host: 119.91.204.67
+    port: 6379
+    password: tw123456
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

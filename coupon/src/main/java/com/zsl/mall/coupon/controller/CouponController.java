@@ -3,18 +3,16 @@ package com.zsl.mall.coupon.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.zsl.mall.coupon.entity.CouponEntity;
 import com.zsl.mall.coupon.service.CouponService;
 import com.zsl.mall.common.utils.PageUtils;
 import com.zsl.mall.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -24,12 +22,19 @@ import com.zsl.mall.common.utils.R;
  * @email s1242556348@qq.com
  * @date 2023-02-01 11:43:04
  */
+@Slf4j
 @RestController
 @RequestMapping("/coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
 
+
+    @GetMapping("test")
+    public R test(){
+        log.info("===========test");
+        return R.ok();
+    }
     /**
      * 列表
      */
