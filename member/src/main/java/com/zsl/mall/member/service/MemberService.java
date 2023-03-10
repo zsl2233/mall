@@ -16,5 +16,7 @@ import java.util.Map;
 public interface MemberService extends IService<MemberEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void insert(String username,String userId) throws Exception;
 }
 

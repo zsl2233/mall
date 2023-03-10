@@ -26,3 +26,21 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
+seata:
+  enabled: true
+  application-id : ${spring.application.name}
+  tx-service-group: default_tx_group
+  use-jdk-proxy: true
+  enable-auto-data-source-proxy: true
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: DEFAULT_GROUP
+  config:
+    type: file
+  service:
+    vgroupMapping:
+      default_tx_group: default
