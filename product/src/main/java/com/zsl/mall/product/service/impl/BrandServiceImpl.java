@@ -55,7 +55,8 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         this.save(brandEntity);
         log.info("Seata全局事务id=================>{}", RootContext.getXID());
         R r = memberFeignClient.test();
-        int i = 10/0;
+        int i =1;
+//        int i = 10/0;
     }
 
 

@@ -21,6 +21,11 @@ public class SeataController {
     public R test() throws Exception {
         log.info("==========================member test");
         memberService.insert("seata", UUID.randomUUID().toString());
+        try {
+            int i = 10/0;
+        }catch (Exception e){
+
+        }
         return R.ok();
     }
 }
