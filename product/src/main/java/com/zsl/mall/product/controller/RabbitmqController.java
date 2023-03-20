@@ -52,5 +52,12 @@ public class RabbitmqController {
         return R.ok();
     }
 
+    @RequestMapping("/delay")
+    public R delay(){
+        BrandEntity brandEntity= brandService.getById(1);
+        rabbitTemplate.convertAndSend("DelayExchange","delay",brandEntity, new CorrelationData(UUID.randomUUID().toString()));
+        return R.ok();
+    }
+
 
 }
